@@ -25,7 +25,7 @@ class HX711:
         self.REFERENCE_UNIT = 1  # The value returned by the hx711 that corresponds to your reference unit AFTER dividing by the SCALE.
         
         self.OFFSET = 1
-        self.lastVal = long(0)
+        self.lastVal = int(0)
 
         self.DEBUG_PRINTING = False
         
@@ -72,11 +72,11 @@ class HX711:
 
     
     def set_gain(self, gain):
-        if gain is 128:
+        if gain == 128:
             self.GAIN = 1
-        elif gain is 64:
+        elif gain == 64:
             self.GAIN = 3
-        elif gain is 32:
+        elif gain == 32:
             self.GAIN = 2
 
         # Read out a set of raw bytes and throw it away.

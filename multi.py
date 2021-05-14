@@ -3,7 +3,7 @@
 import time
 import sys
 
-EMULATE_HX711=False
+EMULATE_HX711=True
 
 referenceUnit = 1
 
@@ -23,7 +23,7 @@ def cleanAndExit():
     sys.exit()
 
 hx = []
-hx[0] = HX711(5, 6)
+hx.append(HX711(5, 6))
 
 for dev in hx:
     dev.set_reading_format("MSB", "MSB")
@@ -41,7 +41,7 @@ while True:
             time.sleep(0.1)
 
             val = hx[i].get_weight(5)
-            print("Weight " + i + ": " + val)
+            print("Weight " + str(i) + ": " + str(val))
 
             hx[i].power_down()
 
